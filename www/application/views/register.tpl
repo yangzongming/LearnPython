@@ -1,5 +1,18 @@
 <html>
-<title>用户注册</title>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>欢迎注册</title>
+    <link rel="stylesheet" href="http://127.0.0.1:8000/static/css/uikit.min.css">
+    <link rel="stylesheet" href="http://127.0.0.1:8000/static/css/uikit.gradient.min.css">
+    <link rel="stylesheet" href="http://127.0.0.1:8000/static/css/awesome.css"/>
+    <script src="http://127.0.0.1:8000/static/js/jquery.min.js"></script>
+    <script src="http://127.0.0.1:8000/static/js/md5.js"></script>
+    <script src="http://127.0.0.1:8000/static/js/uikit.min.js"></script>
+    <script src="http://127.0.0.1:8000/static/js/sticky.min.js"></script>
+    <script src="http://127.0.0.1:8000/static/js/vue.min.js"></script>
+    <script src="http://127.0.0.1:8000/static/js/awesome.js"></script>
+</head>
+<body>
 <script>
 function validateEmail(email) {
     var re = /^[a-z0-9\.\-\_]+\@[a-z0-9\-\_]+(\.[a-z0-9\-\_]+){1,4}$/;
@@ -48,37 +61,11 @@ $(function () {
     });
 });
 </script>
-<div class="uk-width-2-3">
-        <h1>欢迎注册！</h1>
-        <form id="form-register" v-on="submit: submit" class="uk-form uk-form-stacked">
-            <div class="uk-alert uk-alert-danger uk-hidden"></div>
-            <div class="uk-form-row">
-                <label class="uk-form-label">名字:</label>
-                <div class="uk-form-controls">
-                    <input v-model="name" type="text" maxlength="50" placeholder="名字" class="uk-width-1-1">
-                </div>
-            </div>
-            <div class="uk-form-row">
-                <label class="uk-form-label">电子邮件:</label>
-                <div class="uk-form-controls">
-                    <input v-model="email" type="text" maxlength="50" placeholder="your-name@example.com" class="uk-width-1-1">
-                </div>
-            </div>
-            <div class="uk-form-row">
-                <label class="uk-form-label">输入口令:</label>
-                <div class="uk-form-controls">
-                    <input v-model="password1" type="password" maxlength="50" placeholder="输入口令" class="uk-width-1-1">
-                </div>
-            </div>
-            <div class="uk-form-row">
-                <label class="uk-form-label">重复口令:</label>
-                <div class="uk-form-controls">
-                    <input v-model="password2" type="password" maxlength="50" placeholder="重复口令" class="uk-width-1-1">
-                </div>
-            </div>
-            <div class="uk-form-row">
-                <button type="submit" class="uk-button uk-button-primary"><i class="uk-icon-user"></i> 注册</button>
-            </div>
+<p><h2>管理员登陆</h2></p>
+        <form action="/register" method="post">
+            Username: <input name="username" type="text" />
+            Password: <input name="password" type="password" />
+            <input value="Login" type="submit" />
         </form>
-    </div>
+</body>
 </html>
