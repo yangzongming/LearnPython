@@ -1,10 +1,14 @@
-#/usr/bin/env python
-#coding=utf-8
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 import MySQLdb
 from bottle import get,post,request
 from bottle import route,run
 from bottle import template
 from bottle import view
+import json
+
+from www.models import User
 
 import hashlib
 
@@ -85,5 +89,12 @@ def login_post():
         resultMsg = '密码错误'
         db.rollback()
     return template('login_result',result=resultMsg)
+
+@get('/testJson')
+def test():
+    data = '{"a":1,"b":2,"c":3,"d":4,"e":5}';
+    text = json.loads(data)
+    user = User.find_first("where email=?","")
+    return text
 
 run(host='0.0.0.0',port=8080,debug=True)
